@@ -6,7 +6,7 @@ module.exports = function(deployer) {
     var minPauseRuntimeInBlocks = '30';
 
     deployer.deploy(Lottery, web3.utils.toWei('1'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
-    deployer.deploy(Lottery, web3.utils.toWei('1'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
-    deployer.deploy(Lottery, web3.utils.toWei('1'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
-    deployer.deploy(Lottery, web3.utils.toWei('1'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
+    deployer.deploy(Lottery, web3.utils.toWei('5'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
+    deployer.deploy(Lottery, web3.utils.toWei('10'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
+    deployer.deploy(Lottery, web3.utils.toWei('0'), roundRuntimeInBlocks, minPauseRuntimeInBlocks);
 };
