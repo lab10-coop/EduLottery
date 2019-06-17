@@ -1,0 +1,12 @@
+{
+  "name": "edulottery",
+  "version": "1.0.0",
+  "description": "A minimal lottery smart contract for education and demonstration purposes.",
+  "author": "Thomas Haller <tha@lab10.coop>, Dietmar Hofer <dho@lab10.coop>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "truffle": "^5.0.11",
+    "truffle-privatekey-provider": "^1.1.0",
+    "web3": "^1.0.0-beta.55"
+  }
+}
