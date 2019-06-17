@@ -27,7 +27,7 @@ Now you should have the truffle binary installed at `node_modules/.bin/truffle` 
 A good way to explore is to start a truffle console with `node_modules/.bin/truffle develop`.  
 Now you have a REPL which offers you the API of [web3.js](https://web3js.readthedocs.io/en/1.0/index.html) combined with the truffle API and its convenient contract wrappers. E.g. in order to deploy and query an instance of the lottery contract, you could now have a session like this:
 ```
-truffle(develop)>  var roundRuntimeInBlocks='5';
+truffle(develop)>  var roundRuntimeInBlocks='5'; //lottery should pay out after minimum of 5 blocks
 undefined
 truffle(develop)> var minPauseRuntimeInBlocks='3'; //lottery should go into a pause state after payout for a minimum of 3 blocks
 undefined
