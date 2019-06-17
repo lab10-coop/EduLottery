@@ -5,7 +5,8 @@
   "author": "Thomas Haller <tha@lab10.coop>, Dietmar Hofer <dho@lab10.coop>",
   "license": "GPL-3.0",
   "dependencies": {
-    "truffle": "^5.0.11",
+    "mocha": "^6.1.4",
+    "truffle": "^5.0.22",
     "truffle-privatekey-provider": "^1.1.0",
     "web3": "^1.0.0-beta.55"
   }

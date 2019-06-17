@@ -10,6 +10,8 @@
  */
 
 const PrivateKeyProvider = require('truffle-privatekey-provider');
+//const DUMMY_PRIVKEY = '0000000000000000000000000000000000000000000000000000000000000001'
+
 
 module.exports = {
   /**
@@ -30,12 +32,12 @@ module.exports = {
     // options below to some value.
     //
     tau1_rpc: {
-      provider: () => new PrivateKeyProvider(process.env.PRIVKEY || DUMMY_PRIVKEY, 'https://rpc.tau1.artis.network'),
+      provider: () => new PrivateKeyProvider(process.env.PRIVKEY, 'https://rpc.tau1.artis.network'),
       gasPrice: 1000000000,
       network_id: 246785,
     },
     sigma1_rpc: {
-      provider: () => new PrivateKeyProvider(process.env.PRIVKEY || DUMMY_PRIVKEY, 'https://rpc.sigma1.artis.network'),
+      provider: () => new PrivateKeyProvider(process.env.PRIVKEY, 'https://rpc.sigma1.artis.network'),
       gasPrice: 1000000000,
       network_id: 246529,
     }
