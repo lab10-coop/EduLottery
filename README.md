@@ -3,6 +3,21 @@
 This is a minimal lottery smart contract for education and demonstration purposes.
 All interaction with the contract takes place via the [fallback function](https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function). This allows generic wallet applications to interact with it via simple _send transactions_, instead of requiring a dedicated Dapp.
 
+# Release
+
+A set of contracts has been deployed on the [ARTIS Blockchain](https://www.artis.eco)
+The runtime of those contracts is 60 Blocks (~ 5 Minutes). 
+After a payout the Lottery Pauses 30 Blocks (~ 3 Minutes).  
+
+| ATS | Address                                    |
+|-----|--------------------------------------------|
+| 1   | [0xF248b7Ab2A2206BD136FE7c730e3C94F91f26007](https://explorer.sigma1.artis.network/address/0xf248b7ab2a2206bd136fe7c730e3c94f91f26007/transactions) |
+| 5   | [0xeA871C78b34914adeb2A0eD61942810c46A514d7](https://explorer.sigma1.artis.network/address/0xeA871C78b34914adeb2A0eD61942810c46A514d7/transactions) |
+| 10  | [0x8C4402EB9994Da1952f935Eb4eFc3A4424aDF4E1](https://explorer.sigma1.artis.network/address/0x8C4402EB9994Da1952f935Eb4eFc3A4424aDF4E1/transactions) |
+| Any | [0x28D7Be522eAebFeC36C1ec201B5C5E58e420B565](https://explorer.sigma1.artis.network/address/0x28D7Be522eAebFeC36C1ec201B5C5E58e420B565/transactions) |
+
+The bid amount of the "Any" Lottery is determined by the first valid transaction within a round.
+
 # Build
 
 This is a [truffle project](https://truffleframework.com/docs/truffle/overview).  
