@@ -53,7 +53,6 @@ contract('EduLottery', (accounts) => {
 
   let lotteryATS1_2_3;
   const oneATS = web3.utils.toWei("1");
-  const bidGasLimit = 150000;
 
   it('deploy lottery lotteryATS1_2_3 1 ATS bid, 2 blocks runtime, 3 blocks pause', async () => {
     assert(typeof contract.payout === "undefined"); // internal function
@@ -96,7 +95,7 @@ contract('EduLottery', (accounts) => {
       from: player1,
       to: lotteryATS1_2_3.address,
       value: oneATS,
-      gas: bidGasLimit
+      gas: 150000
     })
 
     assert.equal(receipt1.status, '0x1', 'send must be successful');
@@ -107,8 +106,7 @@ contract('EduLottery', (accounts) => {
     var receipt2 = await web3.eth.sendTransaction({
       from: player1,
       to: lotteryATS1_2_3.address,
-      value: oneATS,
-      gas: bidGasLimit
+      value: oneATS
     })
 
 
@@ -134,8 +132,7 @@ contract('EduLottery', (accounts) => {
     var receipt1 = await web3.eth.sendTransaction({
       from: player2,
       to: lotteryATS1_2_3.address,
-      value: oneATS,
-      gas: bidGasLimit
+      value: oneATS
     })
 
     player2_gasCosts = await AddSpentGasCosts(player2_gasCosts, receipt1);
@@ -184,8 +181,7 @@ contract('EduLottery', (accounts) => {
       await web3.eth.sendTransaction({
         from: player2,
         to: lotteryATS1_2_3.address,
-        value: oneATS,
-        gas: bidGasLimit
+        value: oneATS
       })
     } catch (err) {
       lotteryIsPauseException = err;
@@ -199,8 +195,7 @@ contract('EduLottery', (accounts) => {
       await web3.eth.sendTransaction({
         from: player2,
         to: lotteryATS1_2_3.address,
-        value: oneATS,
-        gas: bidGasLimit
+        value: oneATS
       })
     } catch (err) {
       lotteryIsPauseException = err;
