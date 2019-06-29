@@ -14,31 +14,35 @@ pragma solidity >=0.5.7 <0.6.0;
 /// Once a round is over, the first following transaction triggers payout of the collected funds to the winner,
 /// the winner being determined in a raffle based on a simple block hash based RNG (see inline comments).
 contract EduLottery {
-    //positive number indicates the block number when the current round got started.
-    //negative number indicates the minimal block number at which the next round can be started (implying that the lottery is currently paused).
+    // positive number indicates the block number when the current round got started.
+    // negative number indicates the minimal block number at which the next round can be started (implying that the lottery is currently paused).
     int256 public roundStartBlock;
 
-    //timeframe in blocks a round will take.
+    // timeframe in blocks a round will take.
     uint256 public roundRuntimeInBlocks;
 
-    //minimum timeframe in blocks the lottery is paused after a round.
-    //During that timeframe, incoming transactions are rejected.
+    // minimum timeframe in blocks the lottery is paused after a round.
+    // During that timeframe, incoming transactions are rejected.
     uint256 public minPauseRuntimeInBlocks;
 
-    //indicates if the bidAmount is set per round (defined by the opening tx) or not.
+    // indicates if the bidAmount is set per round (defined by the opening tx) or not.
     bool public dynamicBidAmount;
 
-    //the bid amount in wei to be transferred by participants of the current round.
+    // the bid amount in wei to be transferred by participants of the current round.
     uint256 public bidAmount;
 
-    //stores a list of all players who participated in the current round by transferring <bidAmount>.
-    //those sending multiple transactions will be listed in this array multiple times.
+    // stores a list of all players who participated in the current round by transferring <bidAmount>.
+    // those sending multiple transactions will be listed in this array multiple times.
+    // due to gas economics, the array is not cleared between rounds, thus <nrPlayers> holds the current length.
     address payable[] public players;
+
+    // current size of the <players> array. Is always less or equal to players.length.
+    uint256 nrPlayers;
 
 
     event RoundStarted(uint256 bidAmount);
     event Bid(address player);
-    //the RoundPayout event also indicates the end of a lottery round and the start of a pause period.
+    // the RoundPayout event also indicates the end of a lottery round and the start of a pause period.
     event RoundPayout(address winner, uint256 amount);
 
     /// create a new instance EduLottery
@@ -82,16 +86,24 @@ contract EduLottery {
         if(block.number >= uint256(roundStartBlock) + roundRuntimeInBlocks) {
             // a round is over. Pick a winner, pay out, end the round (transitioning to paused state)
             if (msg.value > 0) {
-                //since the round was already over before this tx, sender funds (if any) are immediately returned
+                // since the round was already over before this tx, sender funds (if any) are immediately returned
                 msg.sender.transfer(msg.value);
             }
             roundStartBlock = -int256(block.number + minPauseRuntimeInBlocks);
-            payout(getRandomNumber(players.length));
-            delete players;
+            payout(getRandomNumber(nrPlayers));
+            nrPlayers = 0;
         } else {
             // a round is running. Register the bid if the amount is correct
             require(msg.value == bidAmount, "wrong amount!");
-            players.push(msg.sender);
+
+            if(nrPlayers == players.length) {
+                // array needs to grow in order to accomodate this bid, thus using push()
+                players.push(msg.sender);
+            } else {
+                players[nrPlayers] = msg.sender;
+            }
+            nrPlayers++;
+
             emit Bid(msg.sender);
         }
     }

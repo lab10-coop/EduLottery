@@ -10,7 +10,7 @@
  */
 
 const PrivateKeyProvider = require('truffle-privatekey-provider');
-const DUMMY_PRIVKEY = '0000000000000000000000000000000000000000000000000000000000000001'
+const DUMMY_PRIVKEY = '0000000000000000000000000000000000000000000000000000000000000001';
 
 
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
    */
 
   networks: {
-    /* 
+    /*
     * in order to execute transactions on ARTIS, the env variable PRIVKEY needs to be set to a private key
     * for an address which is funded with ATS.
     * If not set, a dummy private key will be used instead which allows read-only operations.
@@ -57,7 +57,8 @@ module.exports = {
           enabled: true,
           runs: 200
         },
-        evmVersion: "constantinople"
+        evmVersion: "petersburg"
+      }
     }
   }
-}
+};

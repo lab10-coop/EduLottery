@@ -53,6 +53,7 @@ contract('EduLottery', (accounts) => {
 
   let lotteryATS1_2_3;
   const oneATS = web3.utils.toWei("1");
+  const bidGasLimit = 150000;
 
   it('deploy lottery lotteryATS1_2_3 1 ATS bid, 2 blocks runtime, 3 blocks pause', async () => {
     assert(typeof contract.payout === "undefined"); // internal function
@@ -71,7 +72,7 @@ contract('EduLottery', (accounts) => {
     assert.equal(await lotteryATS1_2_3.minPauseRuntimeInBlocks.call(), 3);
   });
 
-  it('player balance dit not change until now', async()=> {
+  it('player balance did not change until now', async()=> {
     let currentBalance = await getTotalBalances(players);
     assert.isOk(currentBalance.eq(initialBalance));
   })
@@ -82,7 +83,7 @@ contract('EduLottery', (accounts) => {
   var player2_initialBalance;
   var player2_gasCosts = new BN();
 
-  it('player1 can pid 2 (= lotteryRuntime) times, Lottery Balance is 2', async()=> {
+  it('player1 can bid 2 (= lotteryRuntime) times, Lottery Balance is 2', async()=> {
 
     //await printBalance(player1);
     //console.log('actionBlock: ' + (await lotteryATS1_2_3.actionBlock.call()));
@@ -94,7 +95,8 @@ contract('EduLottery', (accounts) => {
     var receipt1 = await web3.eth.sendTransaction({
       from: player1,
       to: lotteryATS1_2_3.address,
-      value: oneATS
+      value: oneATS,
+      gas: bidGasLimit
     })
 
     assert.equal(receipt1.status, '0x1', 'send must be successful');
@@ -105,7 +107,8 @@ contract('EduLottery', (accounts) => {
     var receipt2 = await web3.eth.sendTransaction({
       from: player1,
       to: lotteryATS1_2_3.address,
-      value: oneATS
+      value: oneATS,
+      gas: bidGasLimit
     })
 
 
@@ -131,7 +134,8 @@ contract('EduLottery', (accounts) => {
     var receipt1 = await web3.eth.sendTransaction({
       from: player2,
       to: lotteryATS1_2_3.address,
-      value: oneATS
+      value: oneATS,
+      gas: bidGasLimit
     })
 
     player2_gasCosts = await AddSpentGasCosts(player2_gasCosts, receipt1);
@@ -180,7 +184,8 @@ contract('EduLottery', (accounts) => {
       await web3.eth.sendTransaction({
         from: player2,
         to: lotteryATS1_2_3.address,
-        value: oneATS
+        value: oneATS,
+        gas: bidGasLimit
       })
     } catch (err) {
       lotteryIsPauseException = err;
@@ -194,7 +199,8 @@ contract('EduLottery', (accounts) => {
       await web3.eth.sendTransaction({
         from: player2,
         to: lotteryATS1_2_3.address,
-        value: oneATS
+        value: oneATS,
+        gas: bidGasLimit
       })
     } catch (err) {
       lotteryIsPauseException = err;
@@ -366,7 +372,7 @@ contract('EduLottery', (accounts) => {
       from: player2,
       to: lottery.address,
       value: amount,
-      gas: '120000'
+      gas: '150000'
     })
     assert.equal(receipt.status, '0x1', 'lottery should have accepted transaction!');
   }
