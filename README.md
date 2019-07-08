@@ -11,10 +11,10 @@ After a payout the Lottery Pauses 30 Blocks (~ 3 Minutes).
 
 | ATS | Address                                    |
 |-----|--------------------------------------------|
-| 1   | [0xF4FEfCA23D2F4440f56D6d3c55cbF7aBA4Deef84](https://explorer.sigma1.artis.network/address/0xF4FEfCA23D2F4440f56D6d3c55cbF7aBA4Deef84/transactions) |
-| 5   | [0x515b6B8ac84ca7eFdF4c3cD6B46eE72B1C4d7742](https://explorer.sigma1.artis.network/address/0x515b6B8ac84ca7eFdF4c3cD6B46eE72B1C4d7742/transactions) |
-| 10  | [0xbB3678d27cD9605a73DE08307180673999f6C9a6](https://explorer.sigma1.artis.network/address/0xbB3678d27cD9605a73DE08307180673999f6C9a6/transactions) |
-| Any | [0x00a3c6f28C8D502486876E0777B9A0f45798DEe3](https://explorer.sigma1.artis.network/address/0x00a3c6f28C8D502486876E0777B9A0f45798DEe3/transactions) |
+| 1   | [0x285a8c43a3165B21D19B51D7B27f11207a5E9D2d](https://explorer.sigma1.artis.network/address/0x285a8c43a3165B21D19B51D7B27f11207a5E9D2d/transactions) |
+| 5   | [0x907E458ED23Eb25bAAC4F36601D9A85019a8dfD9](https://explorer.sigma1.artis.network/address/0x907E458ED23Eb25bAAC4F36601D9A85019a8dfD9/transactions) |
+| 10  | [0x9A360704dB0EdB4Ce60C0695dFC65A8d1d9230f4](https://explorer.sigma1.artis.network/address/0x9A360704dB0EdB4Ce60C0695dFC65A8d1d9230f4/transactions) |
+| Any | [0xcA3F9373d769734aB8a58b2f4020aD42014Ba793](https://explorer.sigma1.artis.network/address/0xcA3F9373d769734aB8a58b2f4020aD42014Ba793/transactions) |
 
 The bid amount of the "Any" Lottery is determined by the first valid transaction within a round.
 
