@@ -4,6 +4,9 @@
   "description": "A minimal lottery smart contract for education and demonstration purposes.",
   "author": "Thomas Haller <tha@lab10.coop>, Dietmar Hofer <dho@lab10.coop>",
   "license": "GPL-3.0",
+  "scripts": {
+    "test": "node_modules/.bin/truffle test"
+  },
   "dependencies": {
     "mocha": "^6.1.4",
     "truffle": "^5.0.22",

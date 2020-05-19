@@ -6,8 +6,8 @@ All interaction with the contract takes place via the [fallback function](https:
 # Release
 
 A set of contracts has been deployed on the [ARTIS Blockchain](https://www.artis.eco)
-The runtime of those contracts is 60 Blocks (~ 5 Minutes). 
-After a payout the Lottery Pauses 30 Blocks (~ 3 Minutes).  
+The runtime of those contracts is 60 Blocks (~ 5 Minutes).
+After a payout the Lottery Pauses 30 Blocks (~ 3 Minutes).
 
 | ATS | Address                                    |
 |-----|--------------------------------------------|
@@ -20,11 +20,17 @@ The bid amount of the "Any" Lottery is determined by the first valid transaction
 
 # Build
 
-This is a [truffle project](https://truffleframework.com/docs/truffle/overview).  
-After cloning the repo, run `npm ci` in order to get the npm dependencies. Nodejs v10+ required.  
+This is a [truffle project](https://truffleframework.com/docs/truffle/overview).
+After cloning the repo, run `npm ci` in order to get the npm dependencies. Nodejs v10+ required.
 Now you should have the truffle binary installed at `node_modules/.bin/truffle` and can start your exploration.
 
-A good way to explore is to start a truffle console with `node_modules/.bin/truffle develop`.  
+## Test
+
+Run `npm run test`.
+
+## REPL
+
+A good way to explore is to start a truffle console with `node_modules/.bin/truffle develop`.
 Now you have a REPL which offers you the API of [web3.js](https://web3js.readthedocs.io/en/1.0/index.html) combined with the truffle API and its convenient contract wrappers. E.g. in order to deploy and query an instance of the lottery contract, you could now have a session like this:
 ```
 truffle(develop)>  var roundRuntimeInBlocks='5'; //lottery should pay out after minimum of 5 blocks
@@ -55,7 +61,7 @@ truffle(develop)> await web3.eth.getBalance(accs[0]) // lets check the balances 
 '98999902358000000000'
 truffle(develop)> await web3.eth.getBalance(accs[1]) // account 1 is the winner in this case
 '103987308546000000000'
-truffle(develop)> await web3.eth.getBalance(accs[2]) 
+truffle(develop)> await web3.eth.getBalance(accs[2])
 '98999902358000000000'
 truffle(develop)> await web3.eth.getBalance(accs[3])
 '98999902358000000000'
