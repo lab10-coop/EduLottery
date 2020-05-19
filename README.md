@@ -1,5 +1,7 @@
 # About
 
+[![Build Status](https://travis-ci.com/lab10-coop/EduLottery.svg?branch=master)](https://travis-ci.com/lab10-coop/EduLottery)
+
 This is a minimal lottery smart contract for education and demonstration purposes.
 All interaction with the contract takes place via the [fallback function](https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function). This allows generic wallet applications to interact with it via simple _send transactions_, instead of requiring a dedicated Dapp.
 
