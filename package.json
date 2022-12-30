@@ -8,7 +8,7 @@
     "test": "node_modules/.bin/truffle test"
   },
   "dependencies": {
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "truffle": "^5.0.22",
     "truffle-privatekey-provider": "^1.1.0",
     "web3": "^1.0.0-beta.55"
